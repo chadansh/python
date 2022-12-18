@@ -1,0 +1,36 @@
+import pyautogui as pg
+from time import sleep
+
+sleep(3)#Give the python file some time before continuing
+
+#Mouse Functions:
+#print the resolution of screen
+print(pg.size())
+
+#print the current position of the Mouse
+print(pg.position())
+
+#MOves the mouse over time(3sec)
+pg.moveTO(100, 100 ,3)
+
+#move the mouse relative to its current  position
+pg.moveRel(100,100,3)
+
+#click
+pg.click(100,100,3,3 ,button="left")
+pg.leftClick()
+pg.rightClick()
+pg.doubleClick()
+pg.tripleClick()
+
+#scroll up 500
+pg.scroll(500)
+#scroll down 500
+pg.scroll(-500)
+
+#mouse up and down
+pgmouseDown(100,100, button="left")
+pg.moveTO(1000,100,3)
+pg,mouseUp()
+pg.moveTO(1100,100,3)
+
