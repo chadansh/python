@@ -19,11 +19,18 @@ def open():
     sleep(1)
     pg.press("enter")
     sleep(10)
+    #open vs code
+    pg.leftClick(1244,1038)
+    sleep(1)
+    a = input("age verify?= y or n =")
+    if a=='y':
+        ageVerify()
+    else:
+        sleep(1)    
 
-# def ageVerify():
-#     #age verify
-#     # pg.leftClick(873,707)
-#     # sleep(10)
+def ageVerify():
+    pg.leftClick(873,707)
+    sleep(10)
 
 def setFor():
     #setting for 1080
@@ -41,7 +48,7 @@ def setFor():
 #*******************************FUNCTION TO START ************************************
 def start():
     sleep(10)
-    if limit==0:
+    if limit == 0:
         sleep(10)
         close()
     #selected first video
@@ -49,7 +56,7 @@ def start():
     sleep(10)
     #fullscreen
     pg.doubleClick(457, 488) 
-    sleep(10)
+    sleep(vidDur)
     #exit fullscreen
     pg.doubleClick(457,488)
     sleep(2)
@@ -58,8 +65,9 @@ def start():
         sleep(2)
         pg.leftClick(742,404)
         sleep(20)
+        #full screen
         pg.doubleClick(457, 488) 
-        sleep(10)
+        sleep(vidDur)
         #exit fullscreen
         pg.doubleClick(457,488)
         sleep(2)
@@ -82,9 +90,9 @@ def close():
 # print(pg.position())
 
 #**********************************PORNHUB*******************************************************
-sleep(5)
+
 limit = int(input("how many video you want to watch="))
+vidDur = int(input("video duration per video:="))
 open()
 start()
-
 print("Hope!,you enjoys the show")

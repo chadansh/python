@@ -321,6 +321,7 @@ elif task==6:
     #     list.append(a)
     open()
     hash_li_co()
+    close()
     
 
 

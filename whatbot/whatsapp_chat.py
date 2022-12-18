@@ -56,9 +56,9 @@ def close():
     pg.press("enter")
 
 #******************************CODE START FROM HERE****************************************
-i=0
-j = int(input("give j value="))
-for i in range(0,1,1):
+a = int( input("how many times you want to run this program:=") )
+i = 0
+while True:
     sleep(3)
     user = input("username=:")
     message = input("message=:")
@@ -66,15 +66,18 @@ for i in range(0,1,1):
     start()
     search()
     msg()
-    for j in range(0,j,1):
+    i+=1
+    for i in range(a):
         sleep(3)
+        pg.leftClick(1244,1038)
         user=input("username=:")
         message=input("message=:")
         limit=int(input("limit=:"))
         search()
         msg()
-            
-    
+    break    
+sleep(1)            
+close()    
 
 
 print("success")
