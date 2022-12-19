@@ -21,8 +21,11 @@ def open():
             sleep(1)
             pg.press("enter")    
             sleep(10)
+        elif task==6:
+            pg.typewrite("start brave https://www.instagram.com/explore/")    
+            sleep(1)
         else:   
-             pg.typewrite("start brave https://www.instagram.com/")
+            pg.typewrite("start brave https://www.instagram.com/")
         sleep(1)
         pg.press("enter")
         sleep(10)
@@ -78,13 +81,13 @@ def like():
     pg.leftClick(424,383,1,1)
     sleep(1)
     #like post
-    i=0
-    while i<likeLimit:
-        pg.leftClick(832,756)
+    
+    for i in range(likeLimit):
+        pg.doubleClick(561,506)
         sleep(3)
         pg.leftClick(1847,546,1,1)
         sleep(3)
-        i+=1
+        
 
 #*******************************************************comment function**************************************************
 def comment():
@@ -103,9 +106,9 @@ def comment():
     pg.leftClick(424,383,1,1)
     sleep(1)
     #comment post
-    i=0
-    while i<commentLimit:
-        pg.leftClick(986,925,1,1)
+
+    for i in range(likeLimit):
+        pg.doubleClick(561,506)
         sleep(1)
         msg=random.choice(list)
         pg.typewrite(msg)
@@ -114,7 +117,7 @@ def comment():
         sleep(1)
         pg.leftClick(1847,546,1,1)
         sleep(3)
-        i+=1
+        
 
 
 #************************************like and comment function*****************************************   
@@ -134,8 +137,8 @@ def likeComment():
     pg.leftClick(424,383,1,1)
     sleep(1)
     
-    i=0
-    while i<limit:
+
+    for i in range(limit):
         #like a post
         pg.doubleClick(561,506)
         sleep(3)
@@ -149,7 +152,7 @@ def likeComment():
         sleep(1)
         pg.leftClick(1847,546,1,1)
         sleep(2)
-        i+=1
+    
 #************************************chat functions*************************************************
 def multiuser():
     i=0
@@ -214,36 +217,20 @@ def storyWatch():
     pg.leftClick(1088,198,1,2)
     sleep(30)
 
-#**************************************likecomment hashtag**************************************
-def hash_li_co():
-    #open search box
-    pg.leftClick(863,138)
-    sleep(1)
-    #searching user
-    key.write(user)
-    sleep(3)
-    pg.press("enter")
-    sleep(3)
-    pg.press("enter")
-    sleep(10)
-    pg.scroll(scroll)
-    sleep(1)
-    pg.leftClick(521,569,1,2)
-    sleep(1)
-    for i in range(limit):
-        #like a post
-        pg.doubleClick(561,506)
-        sleep(3)
-        #comment on post
-        pg.leftClick(1448,933,1,1)
+def surf():
+    if alreadyLogin=='y':
+        pg.leftClick(483,441,1,1)
+        for i in range(limit):
+            sleep(15)
+            pg.leftClick(1847,546,1,1)
+    else:
+        pg.leftClick(1486,142,1,1)
         sleep(2)
-        msg=random.choice(list)
-        pg.typewrite(msg)
-        sleep(1)
-        pg.press("enter")
-        sleep(1)
-        pg.leftClick(1847,546,1,1)
-        sleep(2)
+        pg.leftClick(483,441,1,1)
+        for i in range(limit):
+            sleep(15)
+            pg.leftClick(1847,546,1,1)
+
         
 
 
@@ -254,7 +241,7 @@ alreadyLogin=input("already login? y or n=")
 if alreadyLogin=='n':
     admin=input("admin=")
     password=input("password=")
-print("Press 1.LikePost\nPress 2.Comment\nPress 3.Like_and_Comment\nPress 4.Chat \nPress 5.Watch insta story\nPress 6.likeandcomment random hashtag ")
+print("Press 1.LikePost\nPress 2.Comment\nPress 3.Like_and_Comment\nPress 4.Chat \nPress 5.Watch insta story\nPress 6.surfing")
 task=int(input("your option="))
 print("Note for hashtag  user will work as hashtag" )
 user=input("username=")
@@ -312,17 +299,13 @@ elif task==5:
     close()
 
 elif task==6:
-    limit=int(input("how many time you want to like and comment=:"))
-    scroll=input("scroll=:")
-    # print("tell me your 5 comments 1 by 1")
-    list=["Waste no more time arguing about what a good man should be. Be one.","“Sexual energy is all too often wasted on masturbation … or sex.”","Pride, envy, avarice - these are the sparks have set on fire the hearts of all men.","The greatest deception men suffer is from their own opinions.","Neutral men are the devil's allies."]
-    # for i in range(5):
-    #     a=input("")
-    #     list.append(a)
+    limit = int(input("number of post to explore="))
     open()
-    hash_li_co()
+    surf()           
     close()
-    
+
+else:
+    print("you typed wrong")
 
 
 
