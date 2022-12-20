@@ -7,7 +7,7 @@ import random
 #**********************************************************open function*******************************************************
 class main:
    
-    def __init__(self,alreadyLogin,task,admin,password,user):
+    def __init__(self,alreadyLogin,admin,password,user="_ansh_bajpai_",task=0):
         self.alreadyLogin=alreadyLogin
         self.task=task
         self.admin=admin
@@ -111,7 +111,7 @@ class main:
         t.sleep(1)
         #comment post
         for i in range(limit):
-            pg.doubleClick(561,506)
+            pg.leftClick(1448,933,1,1)
             t.sleep(1)
             msg=random.choice(msglist)
             pg.typewrite(msg)
@@ -121,7 +121,7 @@ class main:
             pg.leftClick(1847,546,1,1)
             t.sleep(3)
     #************************************like and comment function*****************************************   
-    def likeComment(self,scroll,msglist,limit):
+    def likeComment(self,limit,scroll,msglist):
         self.limit=limit
         self.scroll=scroll
         self.msglist=msglist
@@ -132,27 +132,26 @@ class main:
         pg.typewrite(self.user)
         t.sleep(1)
         pg.press("enter")
-        t.sleep(3)
+        t.sleep(1)
         pg.press("enter")
         t.sleep(5)
         pg.scroll(scroll)
         #open a recent post
         pg.leftClick(424,383,1,1)
         t.sleep(1)
+        #comment post
         for i in range(limit):
-            #like a post
             pg.doubleClick(561,506)
-            t.sleep(3)
-            #comment on post
+            t.sleep(1)
             pg.leftClick(1448,933,1,1)
-            t.sleep
+            t.sleep(1)
             msg=random.choice(msglist)
             pg.typewrite(msg)
             t.sleep(1)
             pg.press("enter")
             t.sleep(1)
             pg.leftClick(1847,546,1,1)
-            t.sleep(2)
+            t.sleep(3)
     #************************************chat functions*************************************************
     def multiuser(self,num_usr,limit,msg):
         i=0
@@ -176,10 +175,11 @@ class main:
             t.sleep(1)
             pg.press("enter")
             t.sleep(1)       
-    def chat(self,num_usr,limit,msg):
+    def chat(self,num_usr,limit,msg,mul):
         self.num_usr=num_usr
         self.limit=limit
         self.msg=msg
+        self.mul=mul
         if self.alreadyLogin=='y':
             if num_usr==1:
                 pg.leftClick(819,372)
@@ -200,13 +200,13 @@ class main:
                     pg.press("enter")
                     t.sleep(0.5)
             else:
-                multiuser(num_usr,limit,msg)
+                mul(num_usr,limit,msg)
         else:
             pg.leftClick(1349,142,1,2)      
             t.sleep(2)
             pg.leftClick(1218,732,1,2)
             t.sleep(2)
-            multiuser(num_usr,limit,msg)
+            mul(num_usr,limit,msg)
     #*************************storyWatch Function***********************************************
     def storyWatch(self,time):
         self.time=time

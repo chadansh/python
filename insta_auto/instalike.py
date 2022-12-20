@@ -3,9 +3,10 @@ class insta(main):
     pass
 
 while True:
+    user=input("user or hashtag you want to like =")
     login=input("AlreadyLogin y : or n :? =")
-    limit= int(input("No. of post= "))
-    time= int(input("time to watch every post= ")) 
+    scroll= int(input("scroll= "))
+    likeLimit=int(input("like limit= "))
     match login:
         case 'n':
             break
@@ -14,10 +15,8 @@ while True:
     if login!='y' or login!='n':
         print("try again")
 
-        
-x = insta(login,6,"_ansh_bajpai_","ansh@999")  
+x = insta(login,"_ansh_bajpai_","ansh@999",user)
 x.open()
-x.surf(limit,time)  
+x.like(scroll,likeLimit)
 x.close()
     
-
