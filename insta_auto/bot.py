@@ -7,11 +7,12 @@ import random
 #**********************************************************open function*******************************************************
 class main:
    
-    def __init__(self,alreadyLogin,task,admin,password):
+    def __init__(self,alreadyLogin,task,admin,password,user):
         self.alreadyLogin=alreadyLogin
         self.task=task
         self.admin=admin
         self.password=password
+        self.user=user
     def open(self):
         #opening cmd
         pg.press("win")
@@ -66,12 +67,14 @@ class main:
         t.sleep(1)
         pg.press("enter")
     #**********************************************************like function**************************************************
-    def like():
+    def like(self,scroll,likeLimit):
+        self.scroll=scroll
+        self.likeLimit=likeLimit
         #open search box
         pg.leftClick(863,138)
         t.sleep(1)
         #searching user
-        pg.typewrite(user)
+        pg.typewrite(self.user)
         t.sleep(1)
         pg.press("enter")
         t.sleep(1)
@@ -88,12 +91,15 @@ class main:
             pg.leftClick(1847,546,1,1)
             t.sleep(3)
     #*******************************************************comment function**************************************************
-    def comment():
+    def comment(self,limit,scroll,msglist):
+        self.scroll=scroll
+        self.limit=limit
+        self.msglist=msglist
         #open search box
         pg.leftClick(863,138)
         t.sleep(1)
         #searching user
-        pg.typewrite(user)
+        pg.typewrite(self.user)
         t.sleep(1)
         pg.press("enter")
         t.sleep(1)
@@ -104,10 +110,10 @@ class main:
         pg.leftClick(424,383,1,1)
         t.sleep(1)
         #comment post
-        for i in range(likeLimit):
+        for i in range(limit):
             pg.doubleClick(561,506)
             t.sleep(1)
-            msg=random.choice(list)
+            msg=random.choice(msglist)
             pg.typewrite(msg)
             t.sleep(1)
             pg.press("enter")
@@ -115,12 +121,15 @@ class main:
             pg.leftClick(1847,546,1,1)
             t.sleep(3)
     #************************************like and comment function*****************************************   
-    def likeComment():
+    def likeComment(self,scroll,msglist,limit):
+        self.limit=limit
+        self.scroll=scroll
+        self.msglist=msglist
         #open search box
         pg.leftClick(863,138)
         t.sleep(1)
         #searching user
-        pg.typewrite(user)
+        pg.typewrite(self.user)
         t.sleep(1)
         pg.press("enter")
         t.sleep(3)
@@ -137,7 +146,7 @@ class main:
             #comment on post
             pg.leftClick(1448,933,1,1)
             t.sleep
-            msg=random.choice(list)
+            msg=random.choice(msglist)
             pg.typewrite(msg)
             t.sleep(1)
             pg.press("enter")
@@ -145,13 +154,13 @@ class main:
             pg.leftClick(1847,546,1,1)
             t.sleep(2)
     #************************************chat functions*************************************************
-    def multiuser():
+    def multiuser(self,num_usr,limit,msg):
         i=0
         pg.leftClick(819,372)
         t.sleep(1)
         #searching user
-        for j in range(num_usr):
-            pg.typewrite(user1[i])
+        for j in num_usr:
+            pg.typewrite(num_usr[i])
             i+=1
             t.sleep(3)
             pg.leftClick(884,453)
@@ -166,13 +175,16 @@ class main:
             pg.typewrite(msg)
             t.sleep(1)
             pg.press("enter")
-            t.sleep(1)
-    def chat():
-        if alreadyLogin=='y':
+            t.sleep(1)       
+    def chat(self,num_usr,limit,msg):
+        self.num_usr=num_usr
+        self.limit=limit
+        self.msg=msg
+        if self.alreadyLogin=='y':
             if num_usr==1:
                 pg.leftClick(819,372)
                 t.sleep(1)
-                pg.typewrite(user)
+                pg.typewrite(self.user)
                 t.sleep(3)
                 pg.leftClick(884,453)
                 t.sleep(3)
@@ -188,13 +200,13 @@ class main:
                     pg.press("enter")
                     t.sleep(0.5)
             else:
-                multiuser()
+                multiuser(num_usr,limit,msg)
         else:
             pg.leftClick(1349,142,1,2)      
             t.sleep(2)
             pg.leftClick(1218,732,1,2)
             t.sleep(2)
-            multiuser()
+            multiuser(num_usr,limit,msg)
     #*************************storyWatch Function***********************************************
     def storyWatch(self,time):
         self.time=time
@@ -204,6 +216,7 @@ class main:
         t.sleep(1)
         pg.leftClick(1088,198,1,2)
         t.sleep(self.time)
+    
     def surf(self,limit,time):
         self.limit=limit
         self.time=time
