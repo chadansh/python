@@ -5,7 +5,6 @@
     * Whatsapp Bot
     * Youtube Bot
 ---
-|----|---------------------|
-
-|Ansh|ansh.suditi@gmail.com|
-
+| Name | Email |
+| --- | --- |
+| Ansh Bajpai | ansh.suditi@gmail.com |
