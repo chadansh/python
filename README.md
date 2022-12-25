@@ -1,5 +1,3 @@
 # PYTHON PROJECTS
 
----
-
-1. *Pyautogui projects* 
+1. **Pyautogui projects**
