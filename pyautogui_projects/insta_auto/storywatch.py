@@ -4,8 +4,7 @@ class insta(main):
 
 while True:
     login=input("AlreadyLogin y : or n :? =")
-    limit= int(input("No. of post= "))
-    time= int(input("time to watch every post= ")) 
+    time= int(input("total time= "))
     match login:
         case 'n':
             break
@@ -14,10 +13,8 @@ while True:
     if login!='y' or login!='n':
         print("try again")
 
-        
-x = insta(login,6,"_ansh_bajpai_","ansh@999")  
-x.open()
-x.surf(limit,time)  
-x.close()
-    
 
+x = insta(login,5)
+x.open()
+x.storyWatch(time)
+x.close()    

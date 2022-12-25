@@ -21,7 +21,7 @@ while True:
     if login!='y' or login!='n':
         print("try again")
 
-x = insta(login,"_ansh_bajpai_","ansh@999",user)
+x = insta(login,2)
 x.open()
-x.comment(limit,scroll,msglist)
+x.comment(limit,scroll,msglist,user)
 x.close()

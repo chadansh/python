@@ -6,7 +6,13 @@ while True:
     user=input("user or hashtag you want to like =")
     login=input("AlreadyLogin y : or n :? =")
     scroll= int(input("scroll= "))
-    likeLimit=int(input("like limit= "))
+    limit= int(input("limit= "))
+    msglist = []
+    a = int(input("no of comments to save"))
+    print("enter comment 1 by 1")
+    for i in range(a):
+        msg=input("comment= ")
+        msglist.append(msg)
     match login:
         case 'n':
             break
@@ -15,8 +21,7 @@ while True:
     if login!='y' or login!='n':
         print("try again")
 
-x = insta(login,"_ansh_bajpai_","ansh@999",user)
+x = insta(login,3)
 x.open()
-x.like(scroll,likeLimit)
+x.likeComment(limit,scroll,msglist,user)
 x.close()
-    
